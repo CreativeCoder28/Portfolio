@@ -213,7 +213,7 @@
     /* Two-column layout for Experience + side column */
     .main-layout{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.5fr .5fr;
       gap:14px;
       align-items:start;
     }
@@ -261,7 +261,7 @@
       margin-top:28px;
     }
 
-    @media (max-width: 900px){
+    @media (max-width: 1200px){
       nav a{ margin-left:10px; font-size:13px; }
       .main-layout{ grid-template-columns: 1fr; }
     }
@@ -286,14 +286,14 @@
                 <div class="download">
                   <!-- Put your resume PDF in the same repo (recommended path: /assets/Curriculum-Vitae.pdf) -->
                   <a class="btn primary" href="assets/Sakshi_Sharma_CV.pdf" download="Sakshi_Sharma_CV.pdf">
-                    Download Resume (PDF)
+                    Download Resume
                   </a>
                 </div>
       </nav>
     </div>
   </header>
 
-  <div class="container hero">
+  <div class="container hero" id="about">
     <div class="hero-inner">
       <img class="avatar" src="assets/avatar.png" alt="Profile photo of Sakshi Sharma" loading="lazy" />
       <h1>Sakshi Sharma</h1>
@@ -314,7 +314,7 @@
 
   <main class="container">
     <!-- ABOUT -->
-    <section id="about">
+    <section >
       <div class="section-card">
         <div class="section-head">
           <h2>About</h2>
