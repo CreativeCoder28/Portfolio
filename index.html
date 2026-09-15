@@ -6,12 +6,12 @@
   <title>Sakshi Sharma | IT Manager | Portfolio</title>
   <style>
     :root{
-      --bg:#f3f4f6;              /* light grey */
+      --bg:#f3f4f6;
       --panel:#ffffff;
-      --text:#0f172a;           /* slate-900 */
-      --muted:#475569;          /* slate-600 */
-      --border:#e5e7eb;        /* gray-200 */
-      --shadow:0 10px 25px rgba(0,0,0,.06); /* shadow instead of box */
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#e5e7eb;
+      --shadow:0 10px 28px rgba(0,0,0,.06);
       --radius:16px;
       --accent:#2563eb;
     }
@@ -33,7 +33,7 @@
       padding:0 18px;
     }
 
-    /* Header / Nav */
+    /* Header */
     header{
       position:sticky;
       top:0;
@@ -50,7 +50,7 @@
       padding:14px 0;
     }
     .brand{
-      font-weight:800;
+      font-weight:900;
       letter-spacing:.2px;
       display:flex;
       align-items:center;
@@ -64,38 +64,34 @@
     }
     nav a{
       color: var(--muted);
-      font-weight:700;
+      font-weight:800;
       margin-left:14px;
       font-size:14px;
       white-space:nowrap;
     }
     nav a:hover{ color:var(--text); }
 
-    /* Hero (centered) */
-    .hero{
-      padding:46px 0 14px;
-      text-align:center;
-    }
+    /* Hero */
+    .hero{ padding:46px 0 14px; text-align:center; }
     .hero-inner{
       background: var(--panel);
       border:1px solid var(--border);
       border-radius: var(--radius);
-      box-shadow: var(--shadow); /* shadow instead of boxes feel */
+      box-shadow: var(--shadow);
       padding:28px 18px;
     }
+
     .avatar{
       width:130px;
       height:130px;
       border-radius:999px;
       object-fit:cover;
-      border:1px solid var(--border);
-      background:#fff;
       display:block;
       margin:0 auto 14px;
-
-      filter: grayscale(100%);
-      opacity:.98;
+      border:1px solid var(--border);
+      background:#fff;
     }
+
     h1{
       margin:0;
       font-size:clamp(28px, 3.6vw, 44px);
@@ -105,7 +101,7 @@
     .tagline{
       margin:8px 0 14px;
       font-size:15px;
-      font-weight:900;
+      font-weight:950;
       color: var(--accent);
     }
     .hero-text{
@@ -114,6 +110,7 @@
       color: var(--muted);
       font-size:15px;
     }
+
     .hero-links{
       margin-top:18px;
       display:flex;
@@ -126,7 +123,7 @@
       background:#fff;
       padding:10px 14px;
       border-radius:12px;
-      font-weight:800;
+      font-weight:900;
       font-size:14px;
       color:var(--text);
       box-shadow: 0 1px 0 rgba(0,0,0,.02);
@@ -144,7 +141,7 @@
       background: var(--panel);
       border:1px solid var(--border);
       border-radius: var(--radius);
-      box-shadow: var(--shadow); /* shadow instead of boxes */
+      box-shadow: var(--shadow);
       padding:18px;
     }
     .section-head{
@@ -162,7 +159,7 @@
     }
     .sub{
       color: var(--muted);
-      font-weight:700;
+      font-weight:800;
       font-size:13px;
     }
 
@@ -174,18 +171,26 @@
     .col-6{ grid-column: span 6; }
     .col-12{ grid-column: span 12; }
 
-    /* Card style: border + shadow */
+    /* Card style */
     .card{
       background:#fff;
-      border:1px solid rgba(229,231,235,.35);
+      border:1px solid rgba(229,231,235,.95);
       border-radius:14px;
       padding:16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,.04);
     }
     .card h3{
       margin:0 0 8px;
       font-size:15px;
+      line-height:1.3;
     }
+    .card .sub-inline{
+      color: var(--muted);
+      font-weight:900;
+      font-size:13px;
+      margin-top:-2px;
+    }
+
     ul{
       margin:8px 0 0 18px;
       padding:0;
@@ -193,7 +198,6 @@
     }
     li{ margin:7px 0; }
 
-    /* Pills */
     .pill-row{
       margin-top:10px;
       display:flex;
@@ -203,11 +207,11 @@
     .pill{
       font-size:12px;
       color: var(--muted);
-      border:1px solid rgba(229,231,235,.9);
+      border:1px solid var(--border);
       background:#fafafa;
       padding:7px 10px;
       border-radius:999px;
-      font-weight:800;
+      font-weight:850;
     }
 
     /* Contact */
@@ -218,16 +222,16 @@
       margin-top:6px;
     }
     .contact{
-      border:1px solid rgba(229,231,235,.95);
+      border:1px solid var(--border);
       background:#fff;
       padding:10px 12px;
       border-radius:12px;
-      font-weight:900;
+      font-weight:950;
       color: var(--text);
       font-size:14px;
-      box-shadow: 0 6px 14px rgba(0,0,0,.04);
+      box-shadow: 0 8px 18px rgba(0,0,0,.04);
     }
-    .contact-muted{ color: var(--muted); margin:12px 0 0; font-weight:700; }
+    .contact-muted{ color: var(--muted); margin:12px 0 0; font-weight:800; }
 
     footer{
       padding:28px 0 48px;
@@ -267,13 +271,7 @@
 
   <div class="container hero">
     <div class="hero-inner">
-      <!-- Photo -->
-      <img
-        class="avatar"
-        src="assets/avatar.png"
-        alt="Profile photo of Sakshi Sharma"
-        loading="lazy"
-      />
+      <img class="avatar" src="assets/avatar.png" alt="Profile photo of Sakshi Sharma" loading="lazy" />
       <h1>Sakshi Sharma</h1>
       <div class="tagline">IT Manager | Program Manager | IT Service Manager</div>
 
@@ -301,7 +299,7 @@
 
         <div class="grid">
           <div class="card col-12">
-            <p style="margin:0; color: var(--muted); font-weight:700;">
+            <p style="margin:0; color: var(--muted); font-weight:900;">
               Results-driven IT Manager and Program Manager with 15+ years of experience in IT Service Management (ITSM),
               digital transformation, and global program delivery. Proven ability to manage complex build &amp; run IT portfolios,
               govern vendor relationships, and deliver continuous service improvement in enterprise environments.
@@ -325,19 +323,17 @@
       <div class="section-card">
         <div class="section-head">
           <h2>Experience</h2>
+          <div class="sub">from your CV</div>
         </div>
 
-        <!-- Column structure: cards in 2 columns where appropriate -->
         <div class="grid">
-          <!-- ALDI -->
           <article class="card col-12">
             <h3>IT Manager — ALDI DX, eCommerce | Digital Transformation (Germany)</h3>
-            <div class="sub" style="margin-top:-2px;">May 2022 – Present</div>
-
+            <div class="sub-inline">May 2022 – Present</div>
             <ul>
               <li>Lead end-to-end IT service lifecycle for ALDI’s global eCommerce platform; ensure end-to-end stability and
                 service continuity with <b>99.9% availability</b> across international markets.</li>
-              <li>Managed an IT project portfolio (~20 team members) using <b>ServiceNow, Tableau, Power BI, Jira, Confluence</b>.</li>
+              <li>Managed an IT project portfolio (~20 team members) using <b>ServiceNow, Jira, Confluence, Power BI, Tableau</b>.</li>
               <li>Lead ITIL Incident/Problem/Change and perform RCA; manage Major Incidents (MIM) as Service Owner,
                 delivering a <b>10% month-over-month reduction</b> in ticket volume until improved product stability.</li>
               <li>Govern vendors/third parties via SLAs, escalations, and supplier performance; implement IT governance
@@ -345,8 +341,7 @@
               <li>Build KPI dashboards and train business teams on ITSM tools/processes for adoption and self-service.</li>
               <li>Deliver 24/7 on-call ITSM incident response; support disaster recovery planning (DR dry runs/tests).</li>
             </ul>
-
-            <div class="pill-row" aria-label="Tools used">
+            <div class="pill-row">
               <span class="pill">ServiceNow</span>
               <span class="pill">ITIL</span>
               <span class="pill">RCA</span>
@@ -357,100 +352,71 @@
             </div>
           </article>
 
-          <!-- SFM -->
           <article class="card col-6">
             <h3>Frontend Developer &amp; UI/UX Lead — SFM Systems (Germany)</h3>
-            <div class="sub" style="margin-top:-2px;">Mar 2021 – Apr 2022</div>
+            <div class="sub-inline">Mar 2021 – Apr 2022</div>
             <ul>
-              <li>Built a real-time Scrum sprint tracking &amp; burndown chart tool (Angular/TypeScript), replacing Excel tracking
+              <li>Built a real-time Scrum sprint tracking and burndown chart tool (Angular/TypeScript), replacing Excel tracking
                 and improving delivery visibility.</li>
             </ul>
-            <div class="pill-row">
-              <span class="pill">Angular</span>
-              <span class="pill">TypeScript</span>
-              <span class="pill">Agile/Scrum</span>
-              <span class="pill">GitHub</span>
-            </div>
           </article>
 
-          <!-- Binect -->
           <article class="card col-6">
             <h3>Frontend Developer — Binect GmbH (Germany)</h3>
-            <div class="sub" style="margin-top:-2px;">Sep 2020 – Dec 2020</div>
+            <div class="sub-inline">Sep 2020 – Dec 2020</div>
             <ul>
               <li>Developed Angular-based modules for an e-post management SaaS platform.</li>
-              <li>Created automated unit and integration tests using <b>Jasmine, Karma, and Selenium</b> to ensure code quality.</li>
+              <li>Created automated unit and integration tests using <b>Jasmine, Karma, Selenium</b> to ensure code quality.</li>
             </ul>
-            <div class="pill-row">
-              <span class="pill">Angular</span>
-              <span class="pill">Jasmine</span>
-              <span class="pill">Karma</span>
-              <span class="pill">Selenium</span>
-            </div>
           </article>
 
-          <!-- Tech Mahindra -->
+          <article class="card col-12">
+            <h3>Maternity Break</h3>
+            <div class="sub-inline">Dec 2015 – August 2020</div>
+            <ul>
+              <li>Time away from work for childcare and family commitments (Nov 2015 – Aug 2020).</li>
+            </ul>
+          </article>
+
           <article class="card col-12">
             <h3>Technical Lead — Tech Mahindra, IT Services &amp; Consulting (India)</h3>
-            <div class="sub" style="margin-top:-2px;">Feb 2013 – Nov 2015</div>
+            <div class="sub-inline">Feb 2013 – Nov 2015</div>
             <ul>
               <li>Led a cross-functional UI/UX team (6+), facilitating client workshops, requirement gathering, and stakeholder communications
                 for an enterprise task management application.</li>
-              <li>Managed change requests and feedback cycles delivering production-ready interfaces on schedule and supported distributed
-                mentoring/coaching for junior developers and designers.</li>
+              <li>Managed change requests and feedback cycles; delivered production-ready interfaces on schedule and supported
+                distributed mentoring/coaching for junior developers and designers.</li>
             </ul>
-            <div class="pill-row">
-              <span class="pill">UI/UX</span>
-              <span class="pill">Stakeholder Mgmt</span>
-              <span class="pill">Change Management</span>
-              <span class="pill">Enterprise Apps</span>
-            </div>
           </article>
 
-          <!-- Digital Group -->
           <article class="card col-6">
             <h3>Senior Software Engineer — The Digital Group, IT Services &amp; Consulting</h3>
-            <div class="sub" style="margin-top:-2px;">Jul 2012 – Jan 2013</div>
+            <div class="sub-inline">Jul 2012 – Jan 2013</div>
             <ul>
               <li>Designed and delivered UI solutions for a litigation document management system; contributed to UX workflows,
                 UI testing, and system integration.</li>
             </ul>
           </article>
 
-          <!-- Infosys -->
           <article class="card col-6">
             <h3>Senior Software Engineer — Infosys Technologies Ltd, IT Services &amp; Consulting</h3>
-            <div class="sub" style="margin-top:-2px;">Jan 2008 – Jun 2012</div>
+            <div class="sub-inline">Jan 2008 – Jun 2012</div>
             <ul>
-              <li>Developed desktop, enterprise, mobile, and web applications for banking/insurance, integrating R&amp;D into delivery.</li>
+              <li>Developed desktop, enterprise, mobile, and web applications for banking/insurance, integrating latest R&amp;D skills into delivery.</li>
               <li>Authored a SketchFlow UI prototyping whitepaper and delivered training across multiple business units.</li>
               <li>Received an award for excellence in SketchFlow/UI design; became a Microsoft Certified Professional.</li>
-            </ul>
-            <div class="pill-row">
-              <span class="pill">SketchFlow</span>
-              <span class="pill">Training</span>
-              <span class="pill">Banking/Insurance</span>
-            </div>
-          </article>
-
-          <!-- Maternity break -->
-          <article class="card col-12">
-            <h3>Maternity Break</h3>
-            <div class="sub" style="margin-top:-2px;">Dec 2015 – August 2020</div>
-            <ul>
-              <li>Time away from work for childcare and family commitments (Nov 2015 – Aug 2020).</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- SKILLS -->
+    <!-- SKILLS (moved below Experience) -->
     <section id="skills">
       <div class="section-card">
         <div class="section-head">
           <h2>Skills</h2>
-          <div class="sub">tools, methodologies, technical strengths</div>
+          <div class="sub">tools &amp; methodologies</div>
         </div>
 
         <div class="grid">
@@ -465,6 +431,7 @@
               <span class="pill">Agile (Scrum)</span>
               <span class="pill">DevOps</span>
               <span class="pill">Portfolio Mgmt</span>
+              <span class="pill">People Leadership</span>
             </div>
           </div>
 
@@ -489,7 +456,7 @@
               <span class="pill">TypeScript</span>
               <span class="pill">JavaScript</span>
               <span class="pill">HTML5</span>
-              <span class="pill">CSS3/SCSS</span>
+              <span class="pill">CSS3 / SCSS</span>
               <span class="pill">C#</span>
               <span class="pill">Python</span>
               <span class="pill">SQL</span>
@@ -516,21 +483,21 @@
         <div class="grid">
           <div class="card col-12">
             <h3>Bachelor of Engineering (Electronics &amp; Communication)</h3>
-            <div class="sub">RGVP Bhopal, India • 2003 – 2007</div>
+            <div class="sub-inline">RGVP Bhopal, India • 2003 – 2007</div>
           </div>
 
           <div class="card col-6">
             <h3>Full Stack Development Certification</h3>
-            <div class="sub">alfatraining Bildungszentrum GmbH, Germany • 2021</div>
+            <div class="sub-inline">alfatraining Bildungszentrum GmbH, Germany • 2021</div>
           </div>
 
           <div class="card col-6">
             <h3>Microsoft Certified Professional</h3>
-            <div class="sub">Silverlight 4 Developer</div>
+            <div class="sub-inline">Silverlight 4 Developer</div>
           </div>
 
           <div class="card col-12">
-            <h3>Target Certifications (2026)</h3>
+            <h3>Target certifications (2026)</h3>
             <div class="pill-row">
               <span class="pill">ITIL v5 Foundation</span>
               <span class="pill">Project Management Professional (PMP)</span>
