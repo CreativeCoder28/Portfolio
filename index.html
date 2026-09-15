@@ -5,114 +5,352 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sakshi Sharma | IT Manager</title>
   <style>
-    body{font-family:Arial,Helvetica,sans-serif; margin:0; color:#111; background:#fff;}
-    .wrap{max-width:980px; margin:0 auto; padding:32px 18px;}
-    header{display:flex; justify-content:space-between; gap:16px; align-items:flex-start; border-bottom:1px solid #eee; padding-bottom:16px;}
-    h1{margin:0 0 6px 0; font-size:32px;}
-    .tag{color:#444; margin-top:4px;}
-    a{color:#0b57d0; text-decoration:none;}
-    .section{margin-top:24px;}
-    .section h2{font-size:18px; margin:0 0 10px 0;}
-    .card{border:1px solid #eee; border-radius:12px; padding:14px 16px; margin-top:10px;}
-    ul{margin:8px 0 0 18px;}
-    .muted{color:#555;}
-    .btn{display:inline-block; padding:10px 12px; border:1px solid #ddd; border-radius:10px; margin-right:8px; background:#fafafa;}
-    footer{margin-top:34px; border-top:1px solid #eee; padding-top:14px; color:#666;}
+    :root{
+      --bg: #0b0f14;
+      --card: rgba(255,255,255,0.06);
+      --text: #e9eef5;
+      --muted: rgba(233,238,245,0.72);
+      --border: rgba(255,255,255,0.12);
+      --accent: #79a6ff;
+      --accent2: #5bd6c6;
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a{ color: var(--text); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    /* Layout */
+    .wrap{
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    /* HERO (2 columns + photo) */
+    .site-header{
+      padding: clamp(22px, 4vw, 52px) 0 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero{
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-photo img{
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 999px; /* round */
+      border: 1px solid rgba(255,255,255,0.14);
+      display: block;
+
+      /* matches your “clean portrait” request */
+      filter: grayscale(100%);
+      opacity: 0.98;
+    }
+
+    .subtitle{
+      color: var(--accent);
+      font-weight: 700;
+      margin: 6px 0 14px;
+      letter-spacing: 0.2px;
+    }
+
+    h1{
+      margin: 0;
+      font-size: clamp(34px, 4.2vw, 52px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .about-short{
+      color: var(--muted);
+      margin: 0 0 18px 0;
+      max-width: 68ch;
+    }
+
+    .hero-actions{
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: rgba(121,166,255,0.16);
+      border: 1px solid rgba(121,166,255,0.35);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 650;
+    }
+
+    .btn-secondary{
+      background: transparent;
+      border-color: var(--border);
+      color: var(--muted);
+    }
+
+    /* Main sections */
+    main{
+      padding: 12px 0 60px;
+    }
+
+    section{
+      padding: 26px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .section-head{
+      margin-bottom: 14px;
+    }
+
+    .section-head h2{
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+
+    .section-head p{
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* Cards / grid */
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .card + .card{ margin-top: 12px; }
+
+    .grid-2{
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .col-6{ grid-column: span 6; }
+    .col-12{ grid-column: span 12; }
+
+    .cards-grid{
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+
+    /* Make “Experience” cards full width on desktop, but still use grid */
+    .exp-card{ grid-column: span 12; }
+
+    .tag-list{
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pill{
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.08);
+    }
+
+    .muted{ color: var(--muted); }
+    ul{
+      margin: 8px 0 0 18px;
+      padding: 0;
+    }
+    li{ margin: 6px 0; }
+
+    /* Skills: nicer “pills” grid */
+    .skill-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+
+    /* Contact */
+    .contact-row{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .contact-link{
+      display:inline-block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    /* Footer */
+    footer{
+      padding-top: 18px;
+      color: rgba(233,238,245,0.55);
+      font-size: 13px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 30px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+      .col-6, .col-12{ grid-column: span 12; }
+      .exp-card{ grid-column: span 12; }
+    }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <header>
-      <div>
-        <h1>Sakshi Sharma</h1>
-        <div class="tag">IT Manager | Program Manager | IT Service Manager</div>
-        <div class="muted">Germany • Authorized to work • 15+ years in ITSM & Digital Transformation</div>
-      </div>
-      <div>
-        <a class="btn" href="https://www.linkedin.com/in/sakshi-sharma28/" target="_blank">LinkedIn</a>
-        <a class="btn" href="mailto:sakshi.280785@gmail.com">Email</a>
-      </div>
-    </header>
+  <!-- HERO -->
+  <header class="site-header">
+    <div class="wrap">
+      <div class="hero">
+        <!-- Column 1: Photo -->
+        <div class="hero-photo">
+          <img src="assets/profile.jpg" alt="Profile photo of Sakshi Sharma" loading="lazy" />
+        </div>
 
-    <div class="section">
-      <h2>About</h2>
-      <div class="card">
-        Results-driven IT Manager and Program Manager with 15+ years of experience in IT Service Management (ITSM), digital transformation, and global program delivery.
-        I lead complex build & run IT portfolios, govern vendor relationships, and drive continuous service improvement using ITIL v3/v4, Agile/Scrum, and KPI-driven reporting.
-      </div>
-    </div>
+        <!-- Column 2: Content -->
+        <div>
+          <h1>Sakshi Sharma</h1>
+          <div class="subtitle">IT Manager | Program Manager | IT Service Manager</div>
+          <p class="about-short">
+            15+ years in IT Service Management (ITSM), digital transformation, and global program delivery.
+            I lead complex build & run portfolios, govern vendor relationships, and drive continuous service improvement
+            using ITIL v3/v4, Agile/Scrum, and KPI-driven reporting.
+          </p>
 
-    <div class="section">
-      <h2>Key Strengths</h2>
-      <div class="card">
-        <ul>
-          <li><b>ITSM (ITIL v3/v4):</b> Incident / Problem / Change, RCA, risk & requirement management</li>
-          <li><b>Program & Portfolio Delivery:</b> Agile/Scrum, stakeholder management, governance</li>
-          <li><b>Vendor & Supplier Governance:</b> SLA management, escalations, supplier performance</li>
-          <li><b>IT Governance & Compliance:</b> audits, access controls</li>
-          <li><b>KPI & Reporting:</b> Power BI / Tableau dashboards</li>
-          <li><b>Global 24/7 Operations:</b> on-call, incident response, SLA adherence</li>
-        </ul>
-      </div>
-    </div>
+          <div class="hero-actions">
+            <a class="btn" href="#experience">Experience</a>
+            <a class="btn btn-secondary" href="#contact">Contact</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/sakshi-sharma28/" target="_blank" rel="noopener">
+              LinkedIn
+            </a>
+            <a class="btn btn-secondary" href="mailto:sakshi.280785@gmail.com">Email</a>
+          </div>
 
-    <div class="section">
-      <h2>Experience</h2>
-
-      <div class="card">
-        <b>IT Manager — ALDI DX (eCommerce), Germany</b><br/>
-        <span class="muted">May 2022 – Present</span>
-        <ul>
-          <li>Lead end-to-end IT service lifecycle ensuring <b>99.9% availability</b> across international markets.</li>
-          <li>Manage IT project portfolio for ~20 members using ServiceNow, Jira, Confluence, Power BI, Tableau.</li>
-          <li>Lead ITIL Incident/Problem/Change and RCA; as Service Owner managed MIM and delivered <b>10% month-over-month ticket reduction</b>.</li>
-          <li>Govern vendors/third parties (SLAs/escalations) and implement governance (risk assessments, compliance audits, access controls).</li>
-          <li>Build KPI dashboards and train business teams for ITSM adoption and self-service.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <b>Frontend Developer & UI/UX Lead — SFM Systems, Germany</b><br/>
-        <span class="muted">Mar 2021 – Apr 2022</span>
-        <ul>
-          <li>Built real-time Scrum sprint tracking & burndown tool (Angular/TypeScript), replacing Excel tracking.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <b>Frontend Developer — Binect GmbH, Germany</b><br/>
-        <span class="muted">Sep 2020 – Dec 2020</span>
-        <ul>
-          <li>Developed Angular modules and created automated tests (Jasmine, Karma, Selenium) for code quality.</li>
-        </ul>
+          <div class="muted" style="margin-top:14px;">
+            Germany • Work permit: Authorized to work
+          </div>
+        </div>
       </div>
     </div>
+  </header>
 
-    <div class="section">
-      <h2>Skills</h2>
-      <div class="card">
-        <div><b>ITSM & PM Tools:</b> ServiceNow, Jira, Confluence, MS Project, Visio, Ariba</div>
-        <div style="margin-top:6px;"><b>Methodologies:</b> ITIL v3/v4, Agile (Scrum), DevOps, MVVM, Waterfall</div>
-        <div style="margin-top:6px;"><b>Programming:</b> Angular, TypeScript, JavaScript, HTML5, CSS3/SCSS, C#, Python, SQL, Node.js</div>
-        <div style="margin-top:6px;"><b>DevOps:</b> GitLab, GitHub, Azure</div>
-        <div style="margin-top:6px;"><b>Testing/Monitoring:</b> Jasmine, Karma, Selenium, New Relic, Dynatrace</div>
-        <div style="margin-top:6px;"><b>BI:</b> Power BI, Tableau</div>
+  <main class="wrap">
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-head">
+        <h2>About</h2>
+        <p>Job-application focused overview</p>
       </div>
-    </div>
 
-    <div class="section">
-      <h2>Education & Certifications</h2>
       <div class="card">
-        <div>Bachelor of Engineering (Electronics & Communication) — RGVP Bhopal (2003–2007)</div>
-        <div style="margin-top:6px;">Full Stack Development Certification — alfatraining Bildungszentrum GmbH (2021)</div>
-        <div style="margin-top:6px;">Microsoft Certified Professional: Silverlight 4 Developer</div>
-        <div style="margin-top:6px;" class="muted">Target (2026): ITIL v5 Foundation, PMP</div>
+        <p class="muted" style="margin:0;">
+          Results-driven IT Manager and Program Manager with 15+ years of experience in IT Service Management (ITSM),
+          digital transformation, and global program delivery. Proven ability to manage complex build & run IT project portfolios,
+          govern vendor relationships, and deliver continuous service improvement in enterprise environments.
+        </p>
+        <div class="tag-list" aria-label="Core capabilities">
+          <span class="pill">ITIL v3/v4</span>
+          <span class="pill">Incident / Problem / Change</span>
+          <span class="pill">RCA & Governance</span>
+          <span class="pill">Agile / Scrum</span>
+          <span class="pill">Vendor SLAs</span>
+          <span class="pill">KPI Dashboards</span>
+          <span class="pill">24/7 Operations</span>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <footer>
-      Built for job applications • GitHub Pages free hosting
-    </footer>
-  </div>
-</body>
-</html>
+    <!-- KEY STRENGTHS -->
+    <section id="strengths">
+      <div class="section-head">
+        <h2>Key Strengths</h2>
+        <p>What I’m strongest at</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card col-6">
+          <b>ITSM & Service Lifecycle</b>
+          <ul>
+            <li>ITIL v3/v4 practices: Incident, Problem, Change</li>
+            <li>RCA, risk & requirement management</li>
+            <li>SLA/OLA monitoring and improvement</li>
+          </ul>
+        </div>
+
+        <div class="card col-6">
+          <b>Program & Stakeholder Leadership</b>
+          <ul>
+            <li>Agile/Scrum delivery and portfolio management</li>
+            <li>C-suite and cross-functional stakeholder communication</li>
+            <li>Coaching, onboarding, and team performance</li>
+          </ul>
+        </div>
+
+        <div class="card col-6">
+          <b>Vendor & Compliance Governance</b>
+          <ul>
+            <li>SLA governance, escalations, supplier performance</li>
+            <li>Compliance audits and access controls</li>
+            <li>Change/release management oversight</li>
+          </ul>
+        </div>
+
+        <div class="card col-6">
+          <b>Reporting & Data-Driven Ops</b>
+          <ul>
+            <li>KPI dashboards (Power BI / Tableau)</li>
+            <li>Service health reporting and transparency</li>
+            <li>Reduce disruptions and ticket volume</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <p>Selected roles and results</p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card exp-card">
+          <b>IT Manager — ALDI DX, eCommerce | Digital Transformation (Germany)</b><br/>
+          <span class="muted">May 2022 – Present</span>
+
+          <ul>
+            <li>Lead end-to-end IT service lifecycle for ALDI’s global eCommerce platform; ensure end-to-end stability and
+              service continuity with <b>99.9% availability</b> across international markets.</li>
+            <li>Manage an IT project portfolio for ~<b>20</b> team members using ServiceNow, Tableau, Power BI, Jira, and Confluence.</li>
+            <li>Lead ITIL Incident/Problem/Change; perform RCA and manage Major Incidents (MIM) as Service Owner,
+              delivering a <b>10% month-over-month reduction in ticket volume</b> until improved product stability.</li>
+            <li>Govern vendors and third parties: SLAs, escalations, and supplier performance for continuity.</li>
+            <li>Implement IT governance: risk assessments, compliance audits, and access controls aligned to enterprise security.</li>
+            <li>Build KPI dashboards and reporting to improve visibility of IT service health and program status.</li>
+            <li>Train business teams on ITSM tools/processes to increase adoption and self-service resolutions.</li>
+            <li>Deliver 24/7 on-call ITSM incident response; improve service stability and SLA compliance
